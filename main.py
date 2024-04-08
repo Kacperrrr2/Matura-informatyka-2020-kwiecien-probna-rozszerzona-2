@@ -1,55 +1,29 @@
-#zad.4.1
-# wiersze =open('dane4.txt','r')
-# tab=[]
-# for wiersz in wiersze:
-#     tab.append(int(wiersz.strip()))
-# min_luka=9999999999
-# max_luka=0
-# for i in range(len(tab)-1):
-#     luka=abs(tab[i]-tab[i+1])
-#     if luka>max_luka:
-#         max_luka=luka
-#     if luka<min_luka:
-#         min_luka=luka
-# print(f' maxluka: {max_luka} minluka:{min_luka} ')
-#zad.4.2
-# wiersze =open('dane4.txt','r')
-# tab=[]
-# luki=[]
-# for wiersz in wiersze:
-#     tab.append(int(wiersz.strip()))
-# min_luka=9999999999
-# max_luka=0
-# licznik_luk=0
-# poczatkowa_wartosc=0
-# koncowa_wartosc=0
-# poczatkowa_wartosc_max=0
-# koncowa_wartosc_max=0
-# for i in range(len(tab)-3):
-#      if abs(tab[i]-tab[i+1])==abs(tab[i+2]-tab[i+3]):
-#          if licznik_luk==0:
-#             poczatkowa_wartosc=tab[i]
-#          licznik_luk += 1
-#      else:
-#          koncowa_wartosc=tab[i+1]
-#          if licznik_luk>max_luka:
-#              max_luka=licznik_luk
-#              poczatkowa_wartosc_max=poczatkowa_wartosc
-#              koncowa_wartosc_max=koncowa_wartosc
-#          licznik_luk=0
-# print(f'początkowa {poczatkowa_wartosc_max} koncowa {koncowa_wartosc_max} maksymalna luka {max_luka}')
-# Zadanie 4.3
-# krotnosc={}
-# wiersze =open('dane4.txt','r')
-# tab=[]
-# for wiersz in wiersze:
-#     tab.append(int(wiersz.strip()))
-# min_luka=9999999999
-# max_luka=0
-# for i in range(len(tab)-1):
-#     luka=abs(tab[i]-tab[i+1])
-#     if luka in krotnosc:
-#         krotnosc[luka]+=1
-#     else:
-#         krotnosc[luka]=1
-# print(f'{max(dict.values(krotnosc))}  {max(krotnosc, key=krotnosc.get)}')
+import math
+
+
+def nwd(a,b):
+    while a!=b:
+        if a>b:
+            a-=b
+        else:
+            b-=a
+    return a
+
+def nww(a,b):
+    a+b/nwd(a,b)
+
+def czypierwsza(a):
+    if a==2:
+        return True
+
+    if a<=1 or a%2==0:
+        return False
+    for i in range(3,int(math.sqrt(a))+1,2):
+        if a%i==0:
+            return False
+    return True
+
+def rideOrDie():
+    print("ride")
+
+
